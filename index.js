@@ -1,3 +1,4 @@
+$(function(){
 class Pokedex {
 	constructor(pokemonArray){
 		this.pokemonArray = pokemonArray;
@@ -45,7 +46,7 @@ class Pokedex {
 
 
 
-$(function(){ // Document Ready Function
+ // Document Ready Function
 
 	let pokemon = new Pokedex();
 
