@@ -3,22 +3,8 @@ class Pokedex {
 		this.pokemonArray = pokemonArray;
 	}
 
-	showDetails(){
 
-	}
 
-	listImages(){
-		for (var i = 0; i < pokemonArray.length; i++) {
-			cachedFetch(`https://pokeapi.co/api/v2/pokemon/${pokemonArray[i]}`)
-			.then(r => r.json()) 
-			.then(res => { 
-			
-			console.log(res);
-			let pokePicture = res;
-				$('#image').append(`<img src="${pokePicture.sprites.front_default}" />`);
-		 	});
-		}
-	}
 
 	getSprite(id){
 		cachedFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -26,12 +12,23 @@ class Pokedex {
 		.then(res => { 
 			console.log(res);
 			$('#image').html('');
-			$('#image').append(`
-				<img src="${res.sprites.front_default}" />
-			`);
+			$('#name').html('');
+			$('#weight').html('');
+			$('#poke_id').html('');
+			$('#height').html('');
+			$('#types').html('');
+			$('#image').append(`<img src="${res.sprites.front_default}" />`); 
+			$('#name').append("Name: " + res.name);
+			$('#weight').append("Weight: " + res.weight);
+			$('#poke_id').append("ID: " + res.id);
+			$('#height').append("Height: " + res.height);
+			$('#types').html("Type: ");
+			for (var i = 0; i < res.types.length; i++){
+				$('#types').append("<li>" + res.types[i].type.name + "</li>")
+			}
 		 })
 			
-	}
+	}//ends get sprite
 
 	
 
@@ -41,16 +38,10 @@ class Pokedex {
 		}
 	}
 
-	sortPokemon(){
+	
 
-	}
-
-	cacheCall(url, func){
-		cachedFetch(url) 
-		.then(r => r.json()) 
-		.then(res => {  })
-	}
-}
+	
+}//ends pokedex
 
 
 
@@ -64,8 +55,7 @@ $(function(){ // Document Ready Function
 	});
 
 	pokemon.listAllPokemon();
-	pokemon.cacheCall('https://pokeapi.co/api/v2/pokemon/')
 
 
 
-}); // End of document ready function
+}); // Ends document readhy
