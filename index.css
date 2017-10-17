@@ -8,6 +8,8 @@
 	font-weight: bold;
     margin-left: 30px;
     margin-top: 40px;
+    cursor: pointer;
+    cursor: hand;
 }
 #image {
 	margin-left: auto;
@@ -55,4 +57,11 @@
 }
 body{
 	background: honeydew;
+}
+h1{
+	    margin-left: 40px;
+    position: absolute;
+    top: 10px;
+    left: 500px;
+    font-family: fantasy;
 }

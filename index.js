@@ -12,6 +12,7 @@ class Pokedex {
 		.then(r => r.json()) 
 		.then(res => { 
 			console.log(res);
+			
 			$('#image').html('');
 			$('#name').html('');
 			$('#weight').html('');
@@ -26,8 +27,17 @@ class Pokedex {
 			$('#types').html("Type: ");
 			for (var i = 0; i < res.types.length; i++){
 				$('#types').append("<li>" + res.types[i].type.name + "</li>")
+			$(document).on('click', '#favorite', function(){
+				$('#favorite_container').html('');
+		$('#favorite_container').append(res.name);
+		
+	});
+		
+
 			}
-		 })
+
+		 });
+
 			
 	}//ends get sprite
 
@@ -54,6 +64,7 @@ class Pokedex {
 		let id = $(this).data('count');
 		pokemon.getSprite(id + 1);
 	});
+	
 
 	pokemon.listAllPokemon();
 
