@@ -10,11 +10,13 @@
     margin-top: 40px;
     cursor: pointer;
     cursor: hand;
+    position: absolute;
+    top: 100px;
 }
 #image {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+	position: absolute;
+    top: 250px;
+    left: 700px;
 	
 }
 #name{
@@ -65,3 +67,42 @@ h1{
     left: 500px;
     font-family: fantasy;
 }
+#favorite_container{
+    position: absolute;
+    left: 1000px;
+    top: 200px;
+    background: springgreen;
+    padding: 10px;
+}
+#favorite{
+	position: absolute;
+    top: 400px;
+    left: 150px;
+}
+.btn {
+  background: #91d934;
+  background-image: -webkit-linear-gradient(top, #91d934, #ede440);
+  background-image: -moz-linear-gradient(top, #91d934, #ede440);
+  background-image: -ms-linear-gradient(top, #91d934, #ede440);
+  background-image: -o-linear-gradient(top, #91d934, #ede440);
+  background-image: linear-gradient(to bottom, #91d934, #ede440);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #0a0a09;
+  font-size: 20px;
+  padding: 7px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #f00332;
+  background-image: -webkit-linear-gradient(top, #f00332, #d934d3);
+  background-image: -moz-linear-gradient(top, #f00332, #d934d3);
+  background-image: -ms-linear-gradient(top, #f00332, #d934d3);
+  background-image: -o-linear-gradient(top, #f00332, #d934d3);
+  background-image: linear-gradient(to bottom, #f00332, #d934d3);
+  text-decoration: none;
+}
+

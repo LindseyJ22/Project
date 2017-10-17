@@ -27,20 +27,24 @@ class Pokedex {
 			$('#types').html("Type: ");
 			for (var i = 0; i < res.types.length; i++){
 				$('#types').append("<li>" + res.types[i].type.name + "</li>")
-			$(document).on('click', '#favorite', function(){
-				$('#favorite_container').html('');
-		$('#favorite_container').append(res.name);
-		
-	});
-		
-
-			}
-
-		 });
-
+			}//ends for loop
+			
+		 });//ends cacheFetch
 			
 	}//ends get sprite
 
+		addFavorite(id){
+			cachedFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+			.then(r => r.json()) 
+			.then(res => { 
+			// console.log(res);
+			$(document).on('click', '#favorite', function(){
+				$('#favorite_container').html('');
+				$('#favorite_container').append("<li> " + res.name + "</li>");
+		
+			});//ends click function
+		});
+		}
 	
 
 	listAllPokemon(){
@@ -63,6 +67,7 @@ class Pokedex {
 	$(document).on('click', '.pokeName', function() {
 		let id = $(this).data('count');
 		pokemon.getSprite(id + 1);
+		pokemon.addFavorite(id + 1);
 	});
 	
 
