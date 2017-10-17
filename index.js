@@ -11,8 +11,8 @@ class Pokedex {
 		.then(r => r.json()) 
 		.then(res => { 
 			console.log(res);
-				
-			
+
+			$('#favorite').html("Add favorite");
 			$('#image').html(`<img src="${res.sprites.front_default}" />`); 
 			$('#name').html("Name: " + res.name);
 			$('#weight').html("Weight: " + res.weight);
@@ -23,6 +23,9 @@ class Pokedex {
 				$('#types').append("<li>" + res.types[i].type.name + "</li>")
 			}//ends for loop
 			this.currentPokemon = res.name;
+			if (this.favoriteArray.includes(this.currentPokemon)){
+				$('#favorite').html("remove favorite");
+			}	
 		});//ends cacheFetch
 			
 	}//ends get sprite
@@ -30,8 +33,11 @@ class Pokedex {
 	addFavorite(){
 		if (this.favoriteArray.includes(this.currentPokemon)){
 			 this.favoriteArray.splice(this.favoriteArray.indexOf(this.currentPokemon), 1);
+			  $('#favorite').html("Add favorite");
 		}else{
+			 $('#favorite').html("remove favorite");
 			this.favoriteArray.push(this.currentPokemon);
+
 		}
 		this.displayFavorites();
 			// console.log(res);			
