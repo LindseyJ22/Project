@@ -11,6 +11,40 @@ class Pokedex {
 		.then(r => r.json()) 
 		.then(res => { 
 			console.log(res);
+			this.sprites_array = [];
+			// this.currentPokemon = res.name;
+
+			$('#sprites').empty();
+
+			if(res.sprites.back_female !== null){
+				this.sprites_array.push(res.sprites.back_female);
+			}
+			if(res.sprites.back_shiny_female !== null){
+				this.sprites_array.push(res.sprites.back_shiny_female);
+			}
+			if(res.sprites.back_default !== null){
+				this.sprites_array.push(res.sprites.back_default);
+			}
+			if(res.sprites.front_female !== null){
+				this.sprites_array.push(res.sprites.front_female);
+			}
+			if(res.sprites.front_shiny_female !== null){
+				this.sprites_array.push(res.sprites.front_shiny_female);
+			}
+			if(res.sprites.back_shiny !== null){
+				this.sprites_array.push(res.sprites.back_shiny);
+			}
+			if(res.sprites.front_default !== null){
+				this.sprites_array.push(res.sprites.front_default);
+			}
+			if(res.sprites.front_shiny !== null){
+				this.sprites_array.push(res.sprites.front_shiny);
+			}
+      for (var i = 0; i < this.sprites_array.length; i++) {
+				$('#sprites').append(`
+				<img id="sprites_array" src=${this.sprites_array[i]} />
+			  `);
+			}
 
 			$('#favorite').html("Add favorite");
 			$('#image').html(`<img src="${res.sprites.front_default}" />`); 
@@ -19,6 +53,7 @@ class Pokedex {
 			$('#poke_id').html("ID: " + res.id);
 			$('#height').html("Height: " + res.height);
 			$('#types').html("Type: ");
+			
 			for (var i = 0; i < res.types.length; i++){
 				$('#types').append("<li>" + res.types[i].type.name + "</li>")
 			}//ends for loop

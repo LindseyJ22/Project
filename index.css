@@ -107,8 +107,13 @@ h1{
   text-decoration: none;
 }
 #favorite_heading{
-	position: absolute;
+	  position: absolute;
     top: 140px;
     left: 975px;
     font-weight:bold;
     font-family: fantasy;
+} 
+#sprites{
+    margin-top: 500px;
+    margin-left: 550px
+}   
