@@ -66,6 +66,7 @@ h1{
     top: 10px;
     left: 20px;
     font-family: fantasy;
+    font-weight: bold;
 }
 #favorite_container{
     position: absolute;
@@ -105,4 +106,9 @@ h1{
   background-image: linear-gradient(to bottom, #f00332, #d934d3);
   text-decoration: none;
 }
-
+#favorite_heading{
+	position: absolute;
+    top: 140px;
+    left: 975px;
+    font-weight:bold;
+    font-family: fantasy;
